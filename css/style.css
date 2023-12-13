@@ -1,0 +1,248 @@
+/* header  */
+
+header .navbar-nav .nav-item:hover a {
+  /* important được sử dụng khi muốn đè hết tất cả các css của thuộc tính đang được sử dụng */
+  color: green !important;
+}
+
+header .navbar-nav .nav-item {
+  position: relative;
+}
+
+header .navbar-nav .nav-item::before {
+  content: '';
+  background-color: green;
+  width: 0;
+  height: 3px;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: all 0.5s;
+}
+
+header .navbar-nav .nav-item:hover::before {
+  width: 100%;
+}
+
+header .navbar-nav .active a {
+  color: green !important;
+}
+
+header .navbar-nav .active::before {
+  width: 100%;
+}
+
+/* carousel  */
+.carousel .carousel-item {
+  height: 100%;
+  position: relative;
+}
+
+.carousel .carousel-item img {
+  height: 100%;
+}
+
+.carousel .carousel-item div {
+  /* Cách 2 dùng để canh giữa nội dung  */
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(39, 43, 54, 0.5);
+  color: white;
+}
+
+.carousel .carousel-item div img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.carousel .carousel-item div h2 {
+  font-size: 56px;
+}
+
+.carousel .carousel-item div p {
+  font-size: 24px;
+}
+
+/* project css  */
+
+.project .nav-pills .nav-link.active {
+  color: white !important;
+  background-color: green;
+  border-color: green !important;
+}
+
+.project .tab-content .project_item:hover h3 {
+  color: green;
+}
+
+.project .tab-content .project_item .item_text {
+  transition: all 0.5s;
+  border-radius: 0 0 16px 16px;
+  /* trước khi hover sẽ tạo sẵn một border và dùng transparent để có một border ẩn đi  */
+  border: 1px solid transparent;
+  border-top: none;
+}
+
+.project .tab-content .project_item:hover .item_text {
+  /* khi hover thay đổi màu border để có thể nhận thuộc tính transition vì transition chỉ làm chậm hiệu ứng chuyển đổi không làm chậm việc tạo ra  */
+  border-color: green;
+}
+
+/* available css  */
+.available {
+  background-image: url('./../image/3.jpg');
+  background-attachment: fixed;
+  position: relative;
+}
+
+.available::before {
+  content: '';
+  background-color: rgba(7, 10, 12, 0.72);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.available .avai_item {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* mobile < 576px */
+/* sử dụng media screen để responsive cho các thiết bị khác */
+/* có 2 loại giá trị sử dụng  là max-width và min-width */
+/* khi sử dụng max-width sẽ đi từ các thiết bị lớn cho  tới thiết bị nhỏ, ngược lại với min-width */
+@media screen and (max-width: 576px) {
+  .project .tab-pane .row {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .available .avai_item {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .carousel .carousel-item h2 {
+    color: orange;
+  }
+}
+
+.available .avai_item {
+  margin-bottom: 20px;
+}
+
+/* award */
+.award {
+  padding: 70px 0;
+  color: #585858;
+  position: relative;
+
+}
+
+.award::before {
+  content: "";
+  position: absolute;
+  background-image: url(../image/memphis_3.png);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: .5;
+}
+
+.award .award_left {
+  background: rgba(255, 255, 255, .25);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, .3);
+  padding: 45px;
+  backdrop-filter: blur(3px);
+}
+
+.award .award_left h2 {
+  color: black;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.award .award_right {
+  padding: 45px 0;
+}
+
+.award .award_right img {
+  max-width: 100%;
+}
+
+@media screen and (max-width :576px) {
+  .award::before {
+    background-size: cover;
+  }
+}
+
+/* footer */
+footer {
+  background: #222;
+}
+
+footer .footer_top a {
+  margin-right: 10px;
+  color: #aaa;
+}
+
+.footer_top i {
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 50%;
+  border: 1px solid #454545;
+  transition: all .5s;
+}
+
+.footer_top a:hover {
+  text-decoration: none;
+  color: #35a22c
+}
+
+.footer_top i:hover {
+  border-color: #35a22c;
+}
+
+.footer_copy {
+  border-top: 1px solid #454545;
+  padding-top: 35px;
+  margin-top: 35px;
+}
+
+.footer_copy p,
+a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer_copy a:hover {
+  color: #35a22c;
+}
